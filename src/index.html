@@ -1,0 +1,101 @@
+{extend name="../../admin/view/main"}
+
+{block name="button"}
+
+{/block}
+
+{block name="content"}
+<form onsubmit="return false" data-auto="true" action="{:request()->url()}" method="post" class='layui-form layui-card' autocomplete="off">
+    <div class="layui-card-body padding-left-40">
+
+      <div class="layui-form-item">
+          <span class="color-green font-w7">关键字提取</span>
+          <div class="relative block">
+            {foreach ['1'=>'启用','0'=>'禁用'] as $k=>$v}
+            <label class="think-radio">
+                <!--{if (!sysconf('cms.autokey') and $k eq '0') or (sysconf('cms.autokey') and sysconf('cms.autokey') eq $k)}-->
+                <input type="radio" checked name="cms.autokey" value="{$k}"> {$v}
+                <!--{else}-->
+                <input type="radio" name="cms.autokey" value="{$k}"> {$v}
+                <!--{/if}-->
+            </label>
+            {/foreach}
+          </div>
+          <p class="help-block">通过标题自动提取内容关键字功能,开启后添加内容等待时间会延长！ </p>
+      </div>
+
+      <div class="layui-form-item">
+          <span class="color-green font-w7">启用回收站功能</span>
+          <div class="relative block">
+            {foreach ['1'=>'启用','0'=>'禁用'] as $k=>$v}
+            <label class="think-radio">
+                <!--{if (!sysconf('cms.recycle') and $k eq '0') or (sysconf('cms.recycle') and sysconf('cms.recycle') eq $k)}-->
+                <input type="radio" checked name="cms.recycle" value="{$k}"> {$v}
+                <!--{else}-->
+                <input type="radio" name="cms.recycle" value="{$k}"> {$v}
+                <!--{/if}-->
+            </label>
+            {/foreach}
+          </div>
+          <p class="help-block">关闭功能后删除内容会直接删除，不会存入回收站中 </p>
+      </div>
+
+      <div class="layui-form-item">
+          <span class="color-green font-w7">启用审核功能</span>
+          <div class="relative block">
+            {foreach ['1'=>'启用','0'=>'禁用'] as $k=>$v}
+            <label class="think-radio">
+                <!--{if (!sysconf('cms.audit') and $k eq '0') or (sysconf('cms.audit') and sysconf('cms.audit') eq $k)}-->
+                <input type="radio" checked name="cms.audit" value="{$k}"> {$v}
+                <!--{else}-->
+                <input type="radio" name="cms.audit" value="{$k}"> {$v}
+                <!--{/if}-->
+            </label>
+            {/foreach}
+          </div>
+          <p class="help-block">关闭该功能后，内容审核功能失效！ </p>
+      </div>
+
+      <div class="layui-form-item">
+          <span class="color-green font-w7">详情页静态</span>
+          <div class="relative block">
+            {foreach ['1'=>'启用','0'=>'禁用'] as $k=>$v}
+            <label class="think-radio">
+                <!--{if (!sysconf('cms.htmlshow') and $k eq '0') or (sysconf('cms.htmlshow') and sysconf('cms.htmlshow') eq $k)}-->
+                <input type="radio" checked name="cms.htmlshow" value="{$k}"> {$v}
+                <!--{else}-->
+                <input type="radio" name="cms.htmlshow" value="{$k}"> {$v}
+                <!--{/if}-->
+            </label>
+            {/foreach}
+          </div>
+          <p class="help-block">开启功能后内容页在初次访问的时候自动生成静态页面 </p>
+      </div>
+
+      <div class="layui-form-item">
+          <span class="color-green font-w7">远程图片下载</span>
+          <div class="relative block">
+            {foreach ['1'=>'启用','0'=>'禁用'] as $k=>$v}
+            <label class="think-radio">
+                <!--{if (!sysconf('cms.downimg') and $k eq '0') or (sysconf('cms.downimg') and sysconf('cms.downimg') eq $k)}-->
+                <input type="radio" checked name="cms.downimg" value="{$k}"> {$v}
+                <!--{else}-->
+                <input type="radio" name="cms.downimg" value="{$k}"> {$v}
+                <!--{/if}-->
+            </label>
+            {/foreach}
+          </div>
+          <p class="help-block">开启功能后内容中的图片和附件将会自动下载到本地</p>
+      </div>
+
+        <div class="hr-line-dashed"></div>
+
+        <div class="layui-form-item text-center">
+            <button class="layui-btn" type="submit">保存配置</button>
+            <button class="layui-btn layui-btn-danger" type='button' data-history-back="确定要取消配置吗？">取消配置</button>
+        </div>
+
+    </div>
+
+</form>
+{/block}

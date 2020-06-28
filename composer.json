@@ -1,0 +1,26 @@
+{
+    "name": "qhweb/yycms-install",
+    "description": "for thinkphp6.* yycms framework",
+    "type": "yycms-install",
+    "homepage": "http://yyinfos.com/",
+    "license": "Apache-2.0",
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "wlx115",
+            "email": "qhweb@foxmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "yycms\\": "src"
+        },
+        "files": [
+            "src/helper.php"
+        ]
+    }
+}
